@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive Navigation Menu</title>
+  <style>
+    /* Base Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* Navigation Styles */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: transparent;
+      color: white;
+      display: flex;
+      justify-content: center;
+      transition: all 0.3s ease;
+      padding: 1rem 0;
+      z-index: 1000;
+    }
+
+    nav.scrolled {
+      background-color: #333;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: color 0.3s ease, transform 0.2s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ffcc00;
+      transform: scale(1.1);
+    }
+
+    /* Page Content for Scroll Effect */
+    .content {
+      margin-top: 80px; /* Give space under fixed nav */
+      padding: 2rem;
+      height: 2000px; /* Simulate scrollable content */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Menu -->
+  <nav id="navbar">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Dummy Page Content -->
+  <div class="content">
+    <h1 id="home">Welcome</h1>
+    <p>Scroll down to see the navbar style change.</p>
+    <h2 id="about">About Section</h2>
+    <p>...</p>
+    <h2 id="services">Services Section</h2>
+    <p>...</p>
+    <h2 id="contact">Contact Section</h2>
+    <p>...</p>
+  </div>
+
+  <!-- JavaScript to Toggle Class on Scroll -->
+  <script>
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+  </script>
+
+</body>
+</html>
